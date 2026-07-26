@@ -1,0 +1,7 @@
+# Golden Dataset / Regression 工具專用依賴。正式 Streamlit 部署不需要這些，
+# 只有在本機執行 tests/golden/*.py 時才需要安裝：
+#
+#   pip install -r requirements.txt -r requirements-dev.txt --break-system-packages
+#
+pyarrow      # tests/golden 用 parquet 存放凍結的原始 OHLCV
+pyyaml       # tests/golden/tolerance.yaml 的讀取
