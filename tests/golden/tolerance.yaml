@@ -1,0 +1,33 @@
+# Golden Dataset — Tolerance Registry
+#
+# 每個欄位的比對容差設定。tolerance.py / pipeline.py 會讀這份檔案，
+# 沒列出的數值型欄位使用 default_float_tolerance；tolerance 設為
+# null（YAML 的 ~ 或 null）代表要求「完全一致」（字串/分類/決策型欄位）。
+#
+# 修改這裡不需要改程式碼——這是刻意設計成獨立設定檔的原因（見文件建議）。
+
+default_float_tolerance: 1.0e-9
+
+fields:
+  # ---- 分類/字串型欄位：必須完全一致 ----
+  pagoda_trend: null
+  stage: null
+  stage_label: null
+  stage_note: null
+  confidence_label: null
+  market_regime: null
+  entry_signal: null
+  exit_signal: null
+  momentum_grade: null
+  momentum_score_complete: null
+
+  # ---- 決策層數值：視為必須一致，容差 0 ----
+  ai_score: 0.0
+  stop_loss: 0.0
+  target_1: 0.0
+  target_2: 0.0
+
+  # ---- Feature 層：可依指標特性個別放寬/收緊（目前皆沿用 default）----
+  # ema_8: 1.0e-9
+  # macd_dif: 1.0e-9
+  # atr_14: 1.0e-8
